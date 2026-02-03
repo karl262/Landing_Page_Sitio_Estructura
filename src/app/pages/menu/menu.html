@@ -1,3 +1,41 @@
-<!-- Página de Menú -->
-<!-- Analogía: El índice de un libro o la carta de un restaurante. -->
-<p>menu works!</p>
+<div class="container fade-in">
+    <div class="header-section text-center mb-5">
+        <h1>Menú Principal</h1>
+        <p class="text-muted">Explora las secciones disponibles en nuestra plataforma.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Example Menu Items -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm slide-up" style="animation-delay: 0.1s;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Inicio</h3>
+                    <p class="card-text text-muted">Vuelve a la página principal y conoce nuestra propuesta de valor.
+                    </p>
+                    <a routerLink="/" class="btn btn-secondary mt-3">Ir a Inicio</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm slide-up" style="animation-delay: 0.2s;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Contacto</h3>
+                    <p class="card-text text-muted">Comunícate con nuestro equipo para soporte y consultas.</p>
+                    <a routerLink="/contacto" class="btn btn-secondary mt-3">Contactar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm slide-up" style="animation-delay: 0.3s;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Búsqueda</h3>
+                    <p class="card-text text-muted">Utiliza nuestras herramientas avanzadas para encontrar contenido.
+                    </p>
+                    <a routerLink="/busqueda" class="btn btn-secondary mt-3">Buscar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

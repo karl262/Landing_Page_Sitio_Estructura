@@ -1,37 +1,35 @@
-/* Estilos para el contenedor del breadcrumb */
 .breadcrumb {
-  margin: 12px 0;
-  /* Espaciado vertical */
-  font-size: 14px;
-  /* Tamaño de letra legible */
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
-/* Estilos para los enlaces dentro del breadcrumb */
 .breadcrumb a {
+  color: var(--text-muted);
   text-decoration: none;
-  /* Quita el subrayado por defecto */
-  color: #0066cc;
-  /* Color azul estándar para enlaces */
+  transition: color 0.2s ease;
+  font-weight: 400;
 }
 
-/* Efecto hover al pasar el ratón sobre los enlaces */
 .breadcrumb a:hover {
-  text-decoration: underline;
-  /* Añade subrayado para indicar interactividad */
+  color: var(--highlight-color);
+  text-decoration: none;
 }
 
-/* Estilos para el separador (/) */
 .separator {
-  margin: 0 8px;
-  /* Espacio horizontal alrededor del separador */
-  color: #888;
-  /* Color gris suave */
+  margin: 0 0.5rem;
+  color: var(--border-color);
+  font-weight: 300;
 }
 
-/* Estilos para el elemento actual (última miga) */
 .current {
-  font-weight: 600;
-  /* Texto en negrita para destacar */
-  color: #333;
-  /* Color oscuro casi negro */
+  color: var(--primary-color);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

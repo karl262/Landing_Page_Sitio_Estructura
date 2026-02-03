@@ -1,1 +1,10 @@
-/* Estilos para la página de error */
+/* 404 page specific styles */
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.display-1 {
+    font-size: 6rem;
+    color: var(--secondary-color) !important;
+    opacity: 0.5;
+}
