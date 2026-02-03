@@ -1,0 +1,149 @@
+<div class="container mt-3">
+
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="m-0">Contacto</h2>
+        <span class="badge text-bg-secondary">FrontEnd + BackEnd (simulado)</span>
+    </div>
+
+    <p class="text-muted">
+        Aquí validamos en FrontEnd (HTML + scripts) y también en BackEnd (simulado).
+        Verás errores por campo enviados por el “servidor”.
+    </p>
+    <div *ngIf="apiMessage && !enviado" class="alert alert-danger">
+        {{ apiMessage }}
+    </div>
+    <div *ngIf="enviado" class="alert alert-success">
+        ✅ {{ apiMessage || 'Mensaje enviado correctamente.' }}
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+
+            <form #f="ngForm" (ngSubmit)="enviar(f)" novalidate>
+
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" [(ngModel)]="form.nombre" required
+                        minlength="3" maxlength="60" [pattern]="nombreRegex" #nombre="ngModel"
+                        [class.is-invalid]="(nombre.invalid && (nombre.touched || f.submitted)) || hasApiError('nombre')"
+                        [class.is-valid]="nombre.valid && (nombre.touched || f.submitted) && !hasApiError('nombre')"
+                        placeholder="Ej: Juan Pérez" />
+
+                    <div class="invalid-feedback">
+                        <div *ngIf="nombre.errors?.['required']">El nombre es obligatorio.</div>
+                        <div *ngIf="nombre.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</div>
+                        <div *ngIf="nombre.errors?.['maxlength']">El nombre no debe superar 60 caracteres.</div>
+                        <div *ngIf="nombre.errors?.['pattern']">Usa solo letras y espacios.</div>
+                        <div *ngIf="hasApiError('nombre')">{{ apiError('nombre') }}</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Correo</label>
+
+                    <input type="email" class="form-control" name="correo" [(ngModel)]="form.correo" required
+                        maxlength="120" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" #correo="ngModel"
+                        [class.is-invalid]="(correo.invalid && (correo.touched || f.submitted)) || hasApiError('correo')"
+                        [class.is-valid]="correo.valid && (correo.touched || f.submitted) && !hasApiError('correo')"
+                        placeholder="ejemplo@correo.com" />
+
+                    <div class="invalid-feedback">
+                        <div *ngIf="correo.errors?.['required']">El correo es obligatorio.</div>
+                        <div *ngIf="correo.errors?.['email']">El formato del correo no es válido.</div>
+                        <div *ngIf="correo.errors?.['pattern']">El correo debe incluir dominio válido (ej:
+                            algo@dominio.com).</div>
+                        <div *ngIf="correo.errors?.['maxlength']">El correo no debe superar 120 caracteres.</div>
+                        <div *ngIf="hasApiError('correo')">{{ apiError('correo') }}</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Confirmar correo</label>
+
+                    <input type="email" class="form-control" name="confirmarCorreo" [(ngModel)]="form.confirmarCorreo"
+                        required maxlength="120" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" #confirmarCorreo="ngModel"
+                        [class.is-invalid]="
+              (confirmarCorreo.invalid && (confirmarCorreo.touched || f.submitted))
+              || (confirmarCorreo.valid && (confirmarCorreo.touched || f.submitted) && !correosCoinciden())
+              || hasApiError('confirmarCorreo')
+            " [class.is-valid]="
+              confirmarCorreo.valid && (confirmarCorreo.touched || f.submitted) && correosCoinciden()
+              && !hasApiError('confirmarCorreo')
+            " placeholder="Repite tu correo" />
+
+                    <div class="invalid-feedback">
+                        <div *ngIf="confirmarCorreo.errors?.['required']">Confirma tu correo.</div>
+                        <div *ngIf="confirmarCorreo.errors?.['email']">El formato del correo no es válido.</div>
+                        <div *ngIf="confirmarCorreo.errors?.['pattern']">El correo debe incluir dominio válido (ej:
+                            algo@dominio.com).</div>
+                        <div *ngIf="confirmarCorreo.errors?.['maxlength']">El correo no debe superar 120 caracteres.
+                        </div>
+                        <div *ngIf="!confirmarCorreo.errors && !correosCoinciden()">El correo no coincide con el campo
+                            anterior.</div>
+                        <div *ngIf="hasApiError('confirmarCorreo')">{{ apiError('confirmarCorreo') }}</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Mensaje</label>
+
+                    <textarea class="form-control" name="mensaje" [(ngModel)]="form.mensaje" required minlength="10"
+                        maxlength="500" #mensaje="ngModel"
+                        [class.is-invalid]="(mensaje.invalid && (mensaje.touched || f.submitted)) || hasApiError('mensaje')"
+                        [class.is-valid]="mensaje.valid && (mensaje.touched || f.submitted) && !hasApiError('mensaje')"
+                        rows="5" placeholder="Escribe tu mensaje (mínimo 10 caracteres)..."></textarea>
+
+                    <div class="d-flex justify-content-between">
+                        <small class="text-muted">Mín. 10, máx. 500</small>
+                        <small class="text-muted">{{ (form.mensaje?.length ?? 0) }}/500</small>
+                    </div>
+
+                    <div class="invalid-feedback">
+                        <div *ngIf="mensaje.errors?.['required']">El mensaje es obligatorio.</div>
+                        <div *ngIf="mensaje.errors?.['minlength']">El mensaje debe tener al menos 10 caracteres.</div>
+                        <div *ngIf="mensaje.errors?.['maxlength']">El mensaje no debe superar 500 caracteres.</div>
+                        <div *ngIf="hasApiError('mensaje')">{{ apiError('mensaje') }}</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Verificación humana (desafío–respuesta)</label>
+
+                    <div class="input-group">
+                        <span class="input-group-text">{{ desafioActual }}</span>
+
+                        <input type="text" class="form-control" name="respuesta" [(ngModel)]="form.respuesta" required
+                            #respuesta="ngModel" [class.is-invalid]="
+                (respuesta.invalid && (respuesta.touched || f.submitted))
+                || (respuesta.valid && (respuesta.touched || f.submitted) && !desafioValido())
+                || hasApiError('respuesta')
+              " [class.is-valid]="
+                respuesta.valid && (respuesta.touched || f.submitted) && desafioValido()
+                && !hasApiError('respuesta')
+              " placeholder="Respuesta" />
+                    </div>
+
+                    <div class="invalid-feedback d-block"
+                        *ngIf="(respuesta.touched || f.submitted) || hasApiError('respuesta')">
+                        <div *ngIf="respuesta.errors?.['required']">La respuesta es obligatoria.</div>
+                        <div *ngIf="!respuesta.errors && !desafioValido()">Respuesta incorrecta.</div>
+                        <div *ngIf="hasApiError('respuesta')">{{ apiError('respuesta') }}</div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary"
+                        [disabled]="loading || f.invalid || !correosCoinciden() || !desafioValido()">
+                        {{ loading ? 'Enviando...' : 'Enviar' }}
+                    </button>
+
+                    <button type="button" class="btn btn-outline-secondary" (click)="limpiar(f)" [disabled]="loading">
+                        Limpiar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
