@@ -1,0 +1,6 @@
+/*
+  ANALOGÍA DE ENCAPSULAMIENTO:
+  En Angular, los estilos que pones aquí son como "Las reglas de mi casa".
+  Solo afectan a este componente (app-busqueda) y no se filtran ni afectan a los vecinos (otros componentes).
+  Incluso si usas una clase genérica como "h1", solo cambiará los h1 de este componente.
+*/
