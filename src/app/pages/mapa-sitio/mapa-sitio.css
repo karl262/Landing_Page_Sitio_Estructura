@@ -1,1 +1,18 @@
-/* Estilos para el mapa del sitio */
+/* Mapa Sitio specific styles */
+.list-group-item {
+    border-color: var(--border-color);
+    transition: background-color 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: var(--bg-color);
+}
+
+.list-group-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.list-group-item a:hover {
+    color: var(--highlight-color);
+}

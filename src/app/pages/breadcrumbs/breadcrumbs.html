@@ -1,2 +1,44 @@
-<!-- Página de demostración de Breadcrumbs -->
-<p class="colores">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe obcaecati, quis velit quae, optio rerum doloremque qui assumenda mollitia ducimus adipisci reiciendis molestias asperiores ipsum non distinctio veritatis praesentium perferendis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam aperiam optio enim commodi dignissimos itaque ducimus, tempora saepe? Maxime molestiae minima alias magni amet nostrum necessitatibus, consequuntur totam quidem mollitia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dolor distinctio aliquam, suscipit vitae voluptas nam nesciunt quibusdam, provident debitis nisi consequuntur. Cupiditate molestias quidem earum molestiae. Blanditiis, labore maxime. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate totam vero distinctio, sit perferendis nihil dolorum iure vitae quia doloremque laborum inventore qui porro dolorem explicabo placeat eaque, exercitationem est? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate voluptatum nostrum deleniti nisi non laboriosam esse maiores rem nulla deserunt exercitationem accusamus doloremque, suscipit perspiciatis a, distinctio repellat expedita dolores. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In sapiente blanditiis alias velit labore mollitia rerum, ipsum, amet repellat dignissimos fuga assumenda cupiditate eligendi error, repellendus officia hic numquam placeat.</p>
+<div class="container fade-in">
+    <div class="header-section text-center mb-5">
+        <h1>Breadcrumbs</h1>
+        <p class="text-muted">Explorando la jerarquía y el camino de navegación del usuario.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h3 class="mb-3">¿Qué son los Breadcrumbs?</h3>
+                    <p>Los breadcrumbs (o "migas de pan") son un elemento de navegación secundaria que ayuda a los
+                        usuarios a entender su ubicación actual dentro de la jerarquía de un sitio web. Son esenciales
+                        para mejorar la usabilidad y el SEO.</p>
+
+                    <div class="example-box p-3 bg-light rounded my-4">
+                        <h6 class="text-muted mb-2">Ejemplo Visual:</h6>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+                                <li class="breadcrumb-item"><a routerLink="/menu">Menú</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Breadcrumbs</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <h4 class="mt-4">Principios de Implementación</h4>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="text-primary me-2">✔</i> <strong>Ubicación:</strong> Siempre debajo
+                            del encabezado principal.</li>
+                        <li class="mb-2"><i class="text-primary me-2">✔</i> <strong>Claridad:</strong> Nombres cortos y
+                            descriptivos.</li>
+                        <li class="mb-2"><i class="text-primary me-2">✔</i> <strong>Jerarquía:</strong> Reflejan la
+                            estructura lógica del sitio, no el historial del navegador.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a routerLink="/menu" class="btn btn-secondary">Explorar más en el Menú</a>
+            </div>
+        </div>
+    </div>
+</div>

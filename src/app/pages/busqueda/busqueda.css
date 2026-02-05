@@ -1,6 +1,26 @@
-/*
-  ANALOGÍA DE ENCAPSULAMIENTO:
-  En Angular, los estilos que pones aquí son como "Las reglas de mi casa".
-  Solo afectan a este componente (app-busqueda) y no se filtran ni afectan a los vecinos (otros componentes).
-  Incluso si usas una clase genérica como "h1", solo cambiará los h1 de este componente.
-*/
+/* Busqueda page specific styles */
+.min-vh-50 {
+  min-height: 50vh;
+}
+
+.text-primary {
+  color: var(--highlight-color) !important;
+}
+
+.badge.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+  background-color: var(--bg-color);
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}

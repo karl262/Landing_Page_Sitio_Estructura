@@ -1,1 +1,41 @@
-/* Estilos para la página de inicio */
+/* Inicio specific styles */
+.hero-section {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-color);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+}
+
+.features-section {
+    padding: var(--spacing-lg) 0;
+}
+
+.card h3 {
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card p {
+    color: var(--text-muted);
+}

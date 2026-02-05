@@ -13,12 +13,18 @@ import { Breadcrumb } from '../component/shared/breadcrumb/breadcrumb';
 })
 export class Layout {
   quickQuery = '';
+  isMobileMenuOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 
   goSearch(): void {
     const q = (this.quickQuery || '').trim();
     // Navega a /busqueda?q=...
     this.router.navigate(['/busqueda'], { queryParams: { q } });
+    this.isMobileMenuOpen = false; // Close menu on search
   }
 }

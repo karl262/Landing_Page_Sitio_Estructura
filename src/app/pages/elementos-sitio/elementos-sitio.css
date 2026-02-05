@@ -1,1 +1,15 @@
-/* Estilos para la página de elementos */
+/* Elementos Sitio specific styles */
+.swatch {
+    height: 80px;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.75rem;
+}
+
+.color-swatch-card {
+    text-align: center;
+    padding: 1rem !important;
+}
+
+.text-primary {
+    color: var(--highlight-color) !important;
+}

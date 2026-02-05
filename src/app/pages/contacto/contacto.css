@@ -1,0 +1,23 @@
+/* Contacto page specific styles */
+.header-section {
+    padding: var(--spacing-lg) 0;
+}
+
+.header-section h1 {
+    color: var(--primary-color);
+}
+
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--card-bg);
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.bg-light {
+    background-color: var(--bg-color) !important;
+}
