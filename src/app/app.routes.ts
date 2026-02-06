@@ -8,6 +8,7 @@ import { Breadcrumbs } from './pages/breadcrumbs/breadcrumbs';
 import { MapaSitio } from './pages/mapa-sitio/mapa-sitio';
 import { Error404 } from './pages/error-404/error-404';
 import { Busqueda } from './pages/busqueda/busqueda';
+import { Contacto } from './pages/contacto/contacto';
 
 // Definimos el arreglo de rutas.
 // Analogía: Es como el índice de un libro o el GPS del coche.
@@ -44,6 +45,10 @@ export const routes: Routes = [
   {
     path: 'busqueda',
     component: Busqueda,
+  },
+  {
+    path: 'contacto',
+    component: Contacto,
   },
   {
     // Ruta: '**' es un comodín (wildcard).
